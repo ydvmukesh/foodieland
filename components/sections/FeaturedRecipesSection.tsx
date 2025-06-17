@@ -6,6 +6,15 @@ import RecipeCard from "../ui/RecipeCard";
 
 
 export default function FeaturedRecipesSection() {
+  const [favorites, setFavorites] = useState<{ [key: number]: boolean }>({});
+  
+  const handleFavorite = (id: number) => {
+    setFavorites(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
   return (
     <section className="py-10 lg:py-10">
       <div className="container">
