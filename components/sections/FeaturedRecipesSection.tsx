@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image"
 import { FEATURED_RECIPES } from "@/lib/data";
 import RecipeCard from "../ui/RecipeCard";
