@@ -15,7 +15,7 @@ export default function ChefSection() {
           Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqut enim ad minim 
           </p>
         </div>
-          <Button size="default" variant="default">
+          <Button href="/" size="default" variant="default">
               Learn More
             </Button>
         </div>

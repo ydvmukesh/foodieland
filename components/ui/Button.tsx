@@ -1,13 +1,11 @@
 import * as React from "react";
+import Link from "next/link";
+import type { ButtonProps, ButtonAsButtonProps, ButtonAsLinkProps } from "@/lib/types";
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "outline" | "secondary" | "ghost" | "link";
-  size?: "default" | "sm" | "lg" | "icon";
-}
+
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className = "", variant = "default", size = "default", ...props }, ref) => {
+  ({ className = "", variant = "default", size = "default", href, ...props }, ref) => {
     const baseStyle =
       "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm  min-w-[120px] font-semibold ring-offset-background transition-all duration-300 ease-in-out cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0";
 
@@ -28,8 +26,20 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const classes = `${baseStyle} ${variants[variant]} ${sizes[size]} ${className}`.trim();
 
+    if (href) {
+      const { children, href: _, ...linkProps } = props as ButtonAsLinkProps;
+      return (
+        <Link className={classes} href={href} {...linkProps}>
+          {children}
+        </Link>
+      );
+    }
+
+    const { children, ...buttonProps } = props as ButtonAsButtonProps;
     return (
-      <button ref={ref} className={classes} {...props} />
+      <button ref={ref} className={classes} {...buttonProps}>
+        {children}
+      </button>
     );
   }
 );

@@ -8,7 +8,7 @@ export default function Categories() {
       <div className="container ">
         <div className="flex items-center justify-between mb-12 typography">
           <h2>Categories</h2>
-          <Button variant="secondary">View all categories</Button>
+          <Button href="/" variant="secondary">View all categories</Button>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 text lg:grid-cols-6 gap-4 md:gap-10">

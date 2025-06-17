@@ -1,3 +1,19 @@
+export interface BaseButtonProps {
+  variant?: "default" | "outline" | "secondary" | "ghost" | "link";
+  size?: "default" | "sm" | "lg" | "icon";
+  className?: string;
+  children?: React.ReactNode;
+}
+
+export interface ButtonAsButtonProps extends BaseButtonProps, React.ButtonHTMLAttributes<HTMLButtonElement> {
+  href?: never;
+}
+
+export interface ButtonAsLinkProps extends BaseButtonProps, Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
+  href: string;
+}
+
+export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
 export interface Recipe {
   id?: number;
   title?: string | undefined;
