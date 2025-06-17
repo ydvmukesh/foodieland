@@ -40,7 +40,8 @@ export default function FeaturedRecipesSection() {
                 status={recipe.status}
                 heading={"h4"}
                 transparent={true}
-                 onFavoriteToggle={handleFavorite}
+                onFavoriteToggle={handleFavorite}
+                isFavorite={favorites[recipe.id || 0]}
               />
          
           )}
