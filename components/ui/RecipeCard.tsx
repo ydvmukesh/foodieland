@@ -58,7 +58,7 @@ export default function RecipeCard({
               className: "mb-3 sm:mb-5"
             }, title)}
           </Link>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-4">
             <div className="flex items-center pt-2  rounded-full text-sm text-black/60 min-w-[120px] text-center justify-start ">
               <Image
                 src="/images/Timer.svg"
@@ -69,7 +69,7 @@ export default function RecipeCard({
               />
               <span>{time}</span>
             </div>
-            <div className="flex items-center pt-2 rounded-full text-sm text-black/60 min-w-[120px] text-center justify-end ">
+            <div className="flex items-center pt-2 rounded-full text-sm text-black/60 min-w-[120px] text-center justify-start ">
               <Image
                 src="/images/ForkKnife.svg"
                 alt="Chicken Icon"
